@@ -29,12 +29,12 @@ function ScrollViewControl.create(params)
             end
         elseif event.phase == "ended" then
             if horizontalScrollDisabled then
-                displayObjectToGiveTouchFocusFromHorizontalScroll._momentumScrolling._touch( displayObjectToGiveTouchFocusFromHorizontalScroll._view, event )
+                if displayObjectToGiveTouchFocusFromHorizontalScroll then displayObjectToGiveTouchFocusFromHorizontalScroll._momentumScrolling._touch( displayObjectToGiveTouchFocusFromHorizontalScroll._view, event ) end
             else
                 scrollView:setIsLocked(false, "horizontal")
             end
             if verticalScrollDisabled then
-                displayObjectToGiveTouchFocusFromVerticalScroll._momentumScrolling._touch( displayObjectToGiveTouchFocusFromVerticalScroll._view, event )
+                if displayObjectToGiveTouchFocusFromVerticalScroll then displayObjectToGiveTouchFocusFromVerticalScroll._momentumScrolling._touch( displayObjectToGiveTouchFocusFromVerticalScroll._view, event ) end
             else
                 scrollView:setIsLocked(false, "vertical")
             end
