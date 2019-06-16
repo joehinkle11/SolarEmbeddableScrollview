@@ -34,20 +34,31 @@ local scrollView = widget.newScrollView(
         left = screenL,
         width = screenAW,
         height = screenAH,
-        listener = scrollListener
+        horizontalScrollDisabled = true
     }
 )
 
 -- add shapes to scrollview
-for i=1, 100 do
-    local line = display.newLine( screenL, i*50 - 25, screenR, i*50 - 25 )
+for i=1, 20 do
+    local line = display.newLine( screenL, i*50, screenR, i*50 )
     line.strokeWidth = 3
     line:setStrokeColor( .85 )
     scrollView:insert(line)
-    
-    -- local circle = display.newCircle( screenCX + math.random( -150, 150 ), i*50, 20 )
-    -- circle:setFillColor( .85, .85, 1 )
-    -- scrollView:insert( circle )
+    local embeddedScrollView = widget.newScrollView(
+        {
+            top = i*50,
+            left = screenL,
+            width = screenAW,
+            height = 50,
+            verticalScrollDisabled = true
+        }
+    )
+    scrollView:insert(embeddedScrollView)
+    for i=1, 100 do
+        local circle = display.newCircle( screenL + (i-.5)*50, 23, 20 )
+        circle:setFillColor( .85, .85, 1 )
+        embeddedScrollView:insert( circle )
+    end
 end
 
 

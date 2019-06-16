@@ -3,11 +3,13 @@ local Library = require "CoronaLibrary"
 -- Create library
 local lib = Library:new{ name='embeddablescrollview', publisherId='io.joehinkle.embeddablescrollview' }
 
-local colors = require "plugin.embeddablescrollview.scrollviewcontrol"
+local scrollViewControl = require "plugin.embeddablescrollview.scrollviewcontrol"
 
 -------------------------------------------------------------------------------
 -- BEGIN (Insert your implementation starting here)
 -------------------------------------------------------------------------------
+
+lib.create = scrollViewControl.create
 
 -------------------------------------------------------------------------------
 -- END
