@@ -1,8 +1,10 @@
--- 
+--
 -- Abstract: embeddablescrollview Library Plugin Test Project
--- 
--- Sample code is MIT licensed, see http://www.coronalabs.com/links/code/license
--- Copyright (C) 2015 Corona Labs Inc. All Rights Reserved.
+--
+-- This is an example Corona Project documenting how
+-- to use the Embeddable Scrollview library.
+--
+-- Created by Joseph Hinkle
 --
 ------------------------------------------------------------
 
@@ -28,7 +30,7 @@ local screenT = -(screenAH-screenH)*.5
 local screenB = screenAH-(screenAH-screenH)*.5
 
 -- main scrollview
-local scrollView = embeddableScrollview.create(
+local scrollView = widget.newScrollView(
     {
         top = screenT,
         left = screenL,
