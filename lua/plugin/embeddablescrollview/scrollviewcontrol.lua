@@ -28,10 +28,14 @@ function ScrollViewControl.create(params)
                 scrollView:setIsLocked(false, "vertical")
             end
         elseif event.phase == "ended" then
-            if not horizontalScrollDisabled then
+            if horizontalScrollDisabled then
+                displayObjectToGiveTouchFocusFromHorizontalScroll._momentumScrolling._touch( displayObjectToGiveTouchFocusFromHorizontalScroll._view, event )
+            else
                 scrollView:setIsLocked(false, "horizontal")
             end
-            if not verticalScrollDisabled then
+            if verticalScrollDisabled then
+                displayObjectToGiveTouchFocusFromVerticalScroll._momentumScrolling._touch( displayObjectToGiveTouchFocusFromVerticalScroll._view, event )
+            else
                 scrollView:setIsLocked(false, "vertical")
             end
         elseif event.phase == "moved" then

@@ -28,7 +28,7 @@ local screenT = -(screenAH-screenH)*.5
 local screenB = screenAH-(screenAH-screenH)*.5
 
 -- main scrollview
-local scrollView = widget.newScrollView(
+local scrollView = embeddableScrollview.create(
     {
         top = screenT,
         left = screenL,
@@ -39,24 +39,34 @@ local scrollView = widget.newScrollView(
 )
 
 -- add shapes to scrollview
-for i=1, 20 do
+for i=1, 1 do
     local line = display.newLine( screenL, i*50, screenR, i*50 )
     line.strokeWidth = 3
     line:setStrokeColor( .85 )
     scrollView:insert(line)
-    local embeddedScrollView = widget.newScrollView(
+    -- local embeddedScrollView = widget.newScrollView(
+    local embeddedScrollView = embeddableScrollview.create(
         {
             top = i*50,
             left = screenL,
             width = screenAW,
             height = 50,
-            verticalScrollDisabled = true
+            verticalScrollDisabled = true,
+            hideBackground = true,
+            displayObjectToGiveTouchFocusFromVerticalScroll = scrollView
         }
     )
     scrollView:insert(embeddedScrollView)
-    for i=1, 100 do
+    for i=1, 20 do
         local circle = display.newCircle( screenL + (i-.5)*50, 23, 20 )
-        circle:setFillColor( .85, .85, 1 )
+        local num = math.random( 1, 3 )
+        if num == 1 then
+            circle:setFillColor( .85, .85, 1 )
+        elseif num == 2 then
+            circle:setFillColor( .85, 1, .85 )
+        else
+            circle:setFillColor( 1, .85, .85 )
+        end
         embeddedScrollView:insert( circle )
     end
 end
