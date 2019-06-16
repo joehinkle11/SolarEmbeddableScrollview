@@ -7,11 +7,16 @@
 ------------------------------------------------------------
 
 -- Load plugin library
-local embeddablescrollview = require "plugin.embeddablescrollview"
+local embeddableScrollview = require "plugin.embeddablescrollview"
+
+local widget = require "widget"
 
 -------------------------------------------------------------------------------
 -- BEGIN (Insert your sample test starting here)
 -------------------------------------------------------------------------------
+widget.newScrollView({
+
+})
 
 
 -------------------------------------------------------------------------------
