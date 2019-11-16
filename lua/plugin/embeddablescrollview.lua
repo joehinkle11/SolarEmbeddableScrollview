@@ -1,7 +1,7 @@
 local Library = require "CoronaLibrary"
 
 -- Create library
-local lib = Library:new{ name='embeddablescrollview', publisherId='io.joehinkle.embeddablescrollview' }
+local lib = Library:new{ name='embeddablescrollview', publisherId='io.joehinkle' }
 
 local scrollViewControl = require "plugin.embeddablescrollview.scrollviewcontrol"
 
